@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">Medical Dispenser</string>
+    <string name="title_home">Home</string>
+    <string name="title_mediplan">eMediplan</string>
+    <string name="title_Logs">Logs</string>
+    <string name="title_planErfassen">eMediplan Erfassen</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+</resources>
