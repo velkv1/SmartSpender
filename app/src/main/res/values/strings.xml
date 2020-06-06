@@ -4,6 +4,23 @@
     <string name="title_mediplan">eMediplan</string>
     <string name="title_Logs">Logs</string>
     <string name="title_planErfassen">eMediplan Erfassen</string>
+    
+    <string-array name="medicationList">
+        <item name="ibuprofen" type="string">ibuprofen</item>
+        <item name="antikrampf" type="string">Antikrampf</item>
+    </string-array>
+    
+    <string-array name="takingTime">
+        <item name = "morning" type = "string">Morgens</item>
+        <item name = "noon" type = "string">Mittags</item>
+        <item name = "evening" type = "string">Abends</item>
+        <item name = "night" type = "string">Nachts</item>
+    </string-array>
+
+    <string-array name="descriptions">
+        <item name = "ibuprofenDescr" type = "string">Zur Entzündungshemmung</item>
+        <item name = "antikrampfDescr" type = "string">Antikrampf selbsterklärend lol</item>
+    </string-array>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>

@@ -1,5 +1,6 @@
 package ch.bfh.medicaldispenser.ui.mediplan;
 
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;

@@ -13,6 +13,7 @@ public class MediplanErfassenViewModel extends ViewModel {
         //mText.setValue("This is dashboard fragment");
     }
 
+
     public LiveData<String> getText() {
         return mText;
     }
