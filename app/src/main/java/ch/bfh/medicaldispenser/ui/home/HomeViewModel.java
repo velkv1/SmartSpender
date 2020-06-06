@@ -38,7 +38,11 @@ public class HomeViewModel extends ViewModel {
         //descriptionList = new ArrayList<String>();
 
         medications.add(new Medication("Ibuprofen","Entzündungshemmende Wirkung", "Morgens"));
+        medications.add(new Medication("Disulfontetrapim","Antibiotikum zur bekämpfung einer bakteriellen Infektion", "Morgens"));
         medications.add(new Medication("Antikrampf","selbsterklärende Wirkung lol", "Abends"));
+        medications.add(new Medication("Ibuprofen","Entzündungshemmende Wirkung", "Abends"));
+        medications.add(new Medication("Ibuprofen","Entzündungshemmende Wirkung", "Morgens"));
+
 
     }
 
