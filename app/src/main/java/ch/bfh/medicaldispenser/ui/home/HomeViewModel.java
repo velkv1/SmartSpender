@@ -66,6 +66,7 @@ public class HomeViewModel extends ViewModel {
         }
     }*/
 
+
     public ArrayList<Medication> getMedications() {
         return medications;
     }
