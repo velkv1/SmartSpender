@@ -25,6 +25,6 @@ public class MediplanErfassenViewModel extends ViewModel {
     }
 
     public void seteMediplan(String eMediplan) {
-        eMediplan = eMediplan;
+        eMediplanCompressed = eMediplan;
     }
 }
