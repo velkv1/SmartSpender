@@ -30,11 +30,9 @@ public class AlarmActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_alarm);
 
-        Calendar cal = med1.getTime();
         tvName = (TextView) findViewById(R.id.tvName);
         btnNah = (Button) findViewById(R.id.btnRefuse);
         //updateTimeText(cal);
-        startAlarm(cal);
         btnNah.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -57,7 +55,5 @@ public class AlarmActivity extends AppCompatActivity {
         //tvTime.setText(DateFormat.getTimeInstance(DateFormat.SHORT).format(med1.getTime()));
     }
 
-    private void startAlarm(Calendar c){
-        AlarmManager alarmManager = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
-    }
+
 }

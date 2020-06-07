@@ -11,7 +11,10 @@
           <set>
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/app" />
+            <option value="$PROJECT_DIR$/postgresql-42.2.10" />
             <option value="$PROJECT_DIR$/postgresql-42.2.13" />
+            <option value="$PROJECT_DIR$/postgresql-8.2-512.jdbc4" />
+            <option value="$PROJECT_DIR$/postgresql-9.4-1202.jdbc42" />
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />

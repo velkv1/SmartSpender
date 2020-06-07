@@ -44,7 +44,6 @@ public class MainActivity extends AppCompatActivity {
 
         // Set the alarm to start at approximately 9:00 a.m.
         Calendar calendar = Calendar.getInstance();
-        calendar.setTimeInMillis(System.currentTimeMillis());
         calendar.set(Calendar.HOUR_OF_DAY, 22);
         calendar.set(Calendar.MINUTE, 1);
         calendar.set(Calendar.SECOND, 0);
