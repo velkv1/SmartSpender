@@ -16,7 +16,7 @@
         android:textSize="24sp" />
 
     <TextView
-        android:id="@+id/upDescrTV"
+        android:id="@+id/upReasonTV"
         android:layout_width="195dp"
         android:layout_height="wrap_content"
         android:layout_below="@+id/upMedNameTV"

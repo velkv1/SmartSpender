@@ -1,5 +1,6 @@
 package ch.bfh.medicaldispenser.ui.home;
 
+import android.content.Context;
 import android.content.res.Resources;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -24,6 +25,8 @@ import ch.bfh.medicaldispenser.R;
 public class HomeFragment extends Fragment {
 
     private HomeViewModel homeViewModel;
+    MedicationAdapter medicationAdapter;
+    Context thisContext;
     ListView medicationListView;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
@@ -34,7 +37,11 @@ public class HomeFragment extends Fragment {
         Resources res = getResources();
         final TextView textViewHome = root.findViewById(R.id.text_home);
         final TextView textViewUpMedication = root.findViewById(R.id.text_upMedication);
-        MedicationAdapter medicationAdapter = new MedicationAdapter(getContext(), homeViewModel.getMedications());
+        thisContext = getContext();
+
+        homeViewModel.synchData();
+
+        medicationAdapter = new MedicationAdapter(thisContext, homeViewModel.getMedications());
 
 
 

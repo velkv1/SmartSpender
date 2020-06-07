@@ -2,13 +2,15 @@ package ch.bfh.medicaldispenser;
 
 public class Medication {
 
+    private int pharmacode;
     private String name;
-    private String description;
+    private String reason;
     private String takingTime;
 
-    public Medication (String name, String description, String takingTime) {
+    public Medication (int pharmacode, String name, String reason, String takingTime) {
+        this.pharmacode = pharmacode;
         this.name = name;
-        this.description = description;
+        this.reason = reason;
         this.takingTime = takingTime;
     }
 
@@ -16,8 +18,8 @@ public class Medication {
         return this.name;
     }
 
-    public String getDescription() {
-        return this.description;
+    public String getReason() {
+        return this.reason;
     }
 
     public String getTakingTime() {
