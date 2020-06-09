@@ -91,9 +91,9 @@ public class MediplanErfassenFragment extends Fragment {
                                 MediplanErfassenViewModel.seteMediplan(qrCode.valueAt(0).displayValue);
                                 vibrator.vibrate(1000);
                                 cameraSource.stop();
-                                textView.setText("worked :)");
+                                textView.setText("eMediplan wurde erfasst. Kehren Sie nun zum Start zurück.");
                             } else {
-                                textView.setText("kein gültiger eMediplan");
+                                textView.setText("Kein gültiger eMediplan gefunden.");
                             }
                         }
                     });

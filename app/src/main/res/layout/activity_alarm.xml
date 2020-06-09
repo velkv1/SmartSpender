@@ -6,47 +6,54 @@
     android:layout_height="match_parent"
     tools:context=".AlarmActivity">
 
-    <TextView
-        android:id="@+id/tvName"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="warte auf die nächste Medikation"
-        android:layout_centerHorizontal="true"
-        android:textSize="20dp"
-        android:layout_marginTop="30dp">
-    </TextView>
-
-    <TextView
-        android:id="@+id/tvTime"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="--:--"
-        android:layout_centerHorizontal="true"
-        android:layout_below="@+id/tvName"
-        android:textSize="50dp"
-        android:layout_marginTop="70dp">
-    </TextView>
-
     <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="15dp"
-        android:layout_marginLeft="80dp"
         android:id="@+id/btnRefuse"
-        android:text="Nicht einnehmen"
-        android:layout_below="@+id/tvTime"
-        >
-    </Button>
-
-    <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="15dp"
-        android:layout_marginLeft="240dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="35dp"
+        android:layout_marginLeft="80dp"
+        android:layout_marginBottom="35dp"
+        android:text="Nicht einnehmen"></Button>
+
+    <Button
         android:id="@+id/btnAccept"
-        android:text="Einnehmen"
-        android:layout_below="@+id/tvTime"
-        >
-    </Button>
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginLeft="240dp"
+        android:layout_marginTop="465dp"
+        android:layout_marginEnd="35dp"
+        android:layout_marginBottom="35dp"
+        android:text="Einnehmen"></Button>
+
+    <ListView
+        android:id="@+id/medicationAlertLV"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/btnRefuse"
+        android:layout_below="@+id/medicationAlertTV"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="30dp" />
+
+    <TextView
+        android:id="@+id/medicationAlertTV"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:text="Medikamenteneinnahme"
+        android:textSize="24sp" />
 
 </RelativeLayout>

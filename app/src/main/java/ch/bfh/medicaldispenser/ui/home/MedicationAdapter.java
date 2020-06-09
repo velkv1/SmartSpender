@@ -42,9 +42,9 @@ public class MedicationAdapter extends BaseAdapter {
     public View getView(int i, View convertView, ViewGroup parent) {
 
         View v = mInflater.inflate(R.layout.upcoming_medication_list, null);
-        TextView upMedNameTV = (TextView) v.findViewById(R.id.upMedNameTV);
-        TextView upReasonTV = (TextView) v.findViewById(R.id.upReasonTV);
-        TextView takingTimeTV = (TextView) v.findViewById(R.id.takingTimeTV);
+        TextView upMedNameTV = v.findViewById(R.id.upMedNameTV);
+        TextView upReasonTV = v.findViewById(R.id.upReasonTV);
+        TextView takingTimeTV = v.findViewById(R.id.takingTimeTV);
 
         String name = medications.get(i).getName();
         String reason = medications.get(i).getReason();

@@ -1,5 +1,6 @@
 package ch.bfh.medicaldispenser.ui.home;
 
+import android.content.Context;
 import android.os.AsyncTask;
 
 import androidx.lifecycle.LiveData;
@@ -21,23 +22,32 @@ public class HomeViewModel extends ViewModel {
 
     private MutableLiveData<String> homeText;
     private MutableLiveData<String> upMedicationsText;
-    ArrayList<Medication> medications;
-    GetData retrieveData;
+    private MutableLiveData<MedicationAdapter> medicationAdapter;
+    private ArrayList<Medication> medications;
+    private GetData retrieveData;
+    private Context fragmentContext;
+    //MedicationAdapter medicationAdapter;
     //ArrayList<String> medicationList;
     //ArrayList<String> takingTimeList;
     //ArrayList<String> descriptionList;
 
 
 
-    public HomeViewModel() {
+    public HomeViewModel(Context fragmentContext) {
         homeText = new MutableLiveData<>();
         upMedicationsText = new MutableLiveData<>();
-
+        this.fragmentContext = fragmentContext;
 
         homeText.setValue("Guten Tag Herr Brönnimann!");
         upMedicationsText.setValue("Ihre anstehenden Medikationen:");
+        medicationAdapter = new MutableLiveData<>();
 
         medications = new ArrayList<>();
+        retrieveData = new GetData();
+
+        retrieveData.execute();
+
+
         //medicationList = new ArrayList<String>();
         //takingTimeList = new ArrayList<String>();
         //descriptionList = new ArrayList<String>();
@@ -49,9 +59,6 @@ public class HomeViewModel extends ViewModel {
         medications.add(new Medication(1234,"Ibuprofen","Entzündungshemmende Wirkung", "Abends"));
         medications.add(new Medication(1234,"Ibuprofen","Entzündungshemmende Wirkung", "Morgens"));
          */
-
-        retrieveData = new GetData();
-
 
     }
 
@@ -80,17 +87,23 @@ public class HomeViewModel extends ViewModel {
     }*/
 
 
+
+
     public ArrayList<Medication> getMedications() {
         return medications;
+    }
+
+    public LiveData<MedicationAdapter> getMedicationAdapter() {
+        return medicationAdapter;
     }
 
     private class GetData extends AsyncTask<String, String, String> {
 
         String msg = "";
 
-        static final String JDBC_DRIVER = "org.postgresql.Driver";
+        static final String JDBC_DRIVER = "com.mysql.jdbc.Driver";
 
-        static final String DB_URL = "jdbc:postgresql://" +
+        static final String DB_URL = "jdbc:mysql://" +
                 DBStrings.DATABASE_URL + "/" +
                 DBStrings.DATABASE_NAME;
 
@@ -107,12 +120,12 @@ public class HomeViewModel extends ViewModel {
 
             try {
                 Class.forName(JDBC_DRIVER);
-                //props = new Properties();
-                //props.setProperty("user", "Studierende");
-                //props.setProperty("password", "db-2017");
-                //props.setProperty("ssl", "true");
-                //conn = DriverManager.getConnection(DB_URL, props);
-                conn = DriverManager.getConnection(DB_URL, DBStrings.USERNAME, DBStrings.PASSWORD);
+                props = new Properties();
+                props.setProperty("user", "Studierende");
+                props.setProperty("password", "db-2017");
+                props.setProperty("ssl", "true");
+                conn = DriverManager.getConnection(DB_URL, props);
+                //conn = DriverManager.getConnection(DB_URL, DBStrings.USERNAME, DBStrings.PASSWORD);
 
                 stmt = conn.createStatement();
                 String sql = "SELECT * FROM patient NATURAL JOIN medication NATURAL JOIN medicament";
@@ -163,8 +176,8 @@ public class HomeViewModel extends ViewModel {
         @Override
         protected void onPostExecute(String msg) {
 
-            homeText.setValue(this.msg);
-
+            homeText.setValue("Guten Tag Herr Brönnimann!");
+            medicationAdapter.setValue(new MedicationAdapter(fragmentContext, getMedications()));
             }
 
     }

@@ -28,6 +28,8 @@ public class Medication {
         return this.takingTime;
     }
 
+    public int getPharmacode() { return this.pharmacode; }
+
 
     public Calendar getTime(){
         int time = 0;

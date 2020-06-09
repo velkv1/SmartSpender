@@ -36,7 +36,7 @@ public class MainActivity extends AppCompatActivity {
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
         AppBarConfiguration appBarConfiguration = new AppBarConfiguration.Builder(
-                R.id.navigation_home, R.id.navigation_mediplan, R.id.navigation_log, R.id.navigation_mediplan_erfassen)
+                R.id.navigation_home, R.id.navigation_log, R.id.navigation_mediplan_erfassen)
                 .build();
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
         NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
@@ -44,8 +44,8 @@ public class MainActivity extends AppCompatActivity {
 
         // Set the alarm to start at approximately 9:00 a.m.
         Calendar calendar = Calendar.getInstance();
-        calendar.set(Calendar.HOUR_OF_DAY, 22);
-        calendar.set(Calendar.MINUTE, 1);
+        calendar.set(Calendar.HOUR_OF_DAY, 9);
+        calendar.set(Calendar.MINUTE, 30);
         calendar.set(Calendar.SECOND, 0);
 
 // With setInexactRepeating(), you have to use one of the AlarmManager interval

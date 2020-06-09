@@ -1,12 +1,11 @@
 package ch.bfh.medicaldispenser.ui.home;
 
 import android.content.Context;
-import android.content.res.Resources;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -16,10 +15,6 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 
-import java.util.ArrayList;
-
-import ch.bfh.medicaldispenser.MainActivity;
-import ch.bfh.medicaldispenser.Medication;
 import ch.bfh.medicaldispenser.R;
 
 public class HomeFragment extends Fragment {
@@ -31,25 +26,33 @@ public class HomeFragment extends Fragment {
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        homeViewModel =
-                ViewModelProviders.of(this).get(HomeViewModel.class);
+        /*homeViewModel =
+                ViewModelProviders.of(this).get(HomeViewModel.class);*/
+        homeViewModel = new HomeViewModel(getContext());
         View root = inflater.inflate(R.layout.fragment_home, container, false);
-        Resources res = getResources();
         final TextView textViewHome = root.findViewById(R.id.text_home);
         final TextView textViewUpMedication = root.findViewById(R.id.text_upMedication);
-        thisContext = getContext();
-
-        homeViewModel.synchData();
-
-        medicationAdapter = new MedicationAdapter(thisContext, homeViewModel.getMedications());
-
-
-
+        //thisContext = getContext();
         medicationListView = root.findViewById(R.id.medicationListView);
 
-        medicationListView.setAdapter(medicationAdapter);
+        //homeViewModel.synchData();
+
+        /*Button synchButton = root.findViewById(R.id.logButton);
+        synchButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                medicationAdapter = new MedicationAdapter(thisContext, homeViewModel.getMedications());
+                medicationListView.setAdapter(medicationAdapter);
+            }
+        });*/
 
 
+        homeViewModel.getMedicationAdapter().observe(getViewLifecycleOwner(), new Observer<MedicationAdapter>() {
+            @Override
+            public void onChanged(@Nullable MedicationAdapter s) {
+                medicationListView.setAdapter(s);
+            }
+        });
 
         homeViewModel.getHomeText().observe(getViewLifecycleOwner(), new Observer<String>() {
             @Override
@@ -65,4 +68,5 @@ public class HomeFragment extends Fragment {
         });
         return root;
     }
+
 }

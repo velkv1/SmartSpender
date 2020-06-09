@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Medical Dispenser</string>
+    <string name="app_name">SmartSpender</string>
     <string name="title_home">Home</string>
     <string name="title_mediplan">eMediplan</string>
     <string name="title_Logs">Logs</string>
